@@ -10,6 +10,17 @@ langSelect.addEventListener("change", () => { // if any language is selected, th
   chrome.storage.sync.set({ targetLang: langSelect.value });
 });
 
+// Google TTS language mapping
+const ttsLangMap = {
+  en: "en-US",
+  tr: "tr-TR",
+  de: "de-DE",
+  fr: "fr-FR",
+  es: "es-ES",
+  ru: "ru-RU",
+  ar: "ar-XA"
+};
+
 document.getElementById("btn").addEventListener("click", async () => {
   const text = input.value.trim(); //the text from the user, trim is for deleting the spaces from the beginning and the end of the text
   const targetLang = langSelect.value;
@@ -27,4 +38,28 @@ document.getElementById("btn").addEventListener("click", async () => {
   const translated = data[0][0][0]; //That's because of the structure of the answer of API, the translated text is hidden in 3 nested lists. 
 
   output.innerText = translated; //writing the translated text into the box
+
+
+  try {
+    const ttsResponse = await fetch("http://localhost:3000/tts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        text: translated,
+        lang: ttsLangMap[targetLang]
+      })
+    });
+
+    const ttsData = await ttsResponse.json();
+
+    const audio = new Audio(
+      "data:audio/mp3;base64," + ttsData.audio
+    );
+
+    audio.play();
+  } catch (err) {
+    console.error("TTS error:", err);
+  }
 });
+
+
