@@ -39,13 +39,20 @@ document.getElementById("btn").addEventListener("click", async () => {
 
   output.innerText = translated; //writing the translated text into the box
 
+  lastTranslatedText = translated;
+});
+
+async function speakText() {
+  if (!lastTranslatedText) return; // if there is no translated text, do nothing
+
+  const targetLang = langSelect.value;
 
   try {
     const ttsResponse = await fetch("http://localhost:3000/tts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        text: translated,
+        text: lastTranslatedText,
         lang: ttsLangMap[targetLang]
       })
     });
@@ -60,6 +67,9 @@ document.getElementById("btn").addEventListener("click", async () => {
   } catch (err) {
     console.error("TTS error:", err);
   }
-});
+}
+
+//connecting this function to your sound button
+document.getElementById("speakBtn")?.addEventListener("click", speakText);
 
 
