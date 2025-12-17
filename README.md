@@ -5,7 +5,7 @@ Made by Murat, Meryem and Ömer.
 Features
 ---
 Instantly translates selected text via a popup.
-Uses Google Translate API for fast and reliable translations.
+Uses Google Cloud Text-to-Speech API andGoogle Translate API for fast and reliable translations.
 
 Files
 ---
