@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "MMÖ's Translation Extension",
+  "name": "__MSG_MMÖ's Translation Extension__",
   "description": "A browser extension for translating selected text using a free translation API. Made by Murat, Meryem and Ömer",
   "version": "1.1",
   "permissions": ["contextMenus", "storage", "scripting", "activeTab"],
