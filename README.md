@@ -23,6 +23,7 @@ Here's the link to create API: https://console.cloud.google.com/apis/api/texttos
 Once you download the JSON key file for Google Cloud Text-to-Speech API, move your key file inside the backend folder
 Initialize your node.js package manager by typing "npm init" into the terminal while on the backend folder
 Install the necessary packages by typing "npm i express cors @google-cloud/text-to-speech" into the terminal while on the backend folder
+Type "node server.js" to run your server
 Load the extension in Chrome (Developer mode).
 Click the extension icon to open the popup.
 Enter or select text to translate, it will automatically provide text-to-speech
