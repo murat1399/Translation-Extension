@@ -1,11 +1,11 @@
 # Translation Extension
-A simple Chrome extension that translates selected text using the free Google Translate API.
+A simple Chrome extension that translates selected text using the free Google Translate API and Google Cloud API.
 Made by Murat, Meryem and Ömer.
 
 Features
 ---
 Instantly translates selected text via a popup.
-Uses Google Cloud Text-to-Speech API andGoogle Translate API for fast and reliable translations.
+Uses Google Cloud Text-to-Speech API and Google Translate API for fast and reliable translations.
 
 Files
 ---
@@ -20,7 +20,7 @@ Usage
 ---
 Create an API key from Google Cloud Text-to-Speech API 
 Here's the link to create API: https://console.cloud.google.com/apis/api/texttospeech.googleapis.com 
-Once you download the JSON key file for Google Cloud Text-to-Speech API, move your key file inside the backend folder
+Once you download the JSON key file for Google Cloud Text-to-Speech API, name your file as "google-tts-key.json" and move your key file inside the backend folder
 Initialize your node.js package manager by typing "npm init" into the terminal while on the backend folder
 Install the necessary packages by typing "npm i express cors @google-cloud/text-to-speech" into the terminal while on the backend folder
 Type "node server.js" to run your server
